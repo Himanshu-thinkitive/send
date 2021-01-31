@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+	<class name="com.thinkitive.Student" table="dent">
+		<id name="id" column="id" type="int">
+			<generator class="assigned"></generator>
+		</id>
+
+		<property name="name" column="name" type="string"></property>
+		
+		
+		
+		<list name="college" cascade="all">
+		<key column="id"></key>
+     <list-index column="myindex"></list-index>
+     <one-to-many class="com.thinkitive.College"></one-to-many>
+     </list>
+
+	</class>
+
+   <class name="com.thinkitive.College" table="Adds">
+   <id name="cid" column="cid" type="int">
+        <generator class="assigned"></generator>
+    </id>
+   
+   <property name="cname" column="cname" type="string"></property>
+   </class>
+	
+
+
+</hibernate-mapping> 
